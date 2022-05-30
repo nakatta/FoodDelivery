@@ -1,0 +1,73 @@
+<%
+ var sub_total = 0;  
+%> 
+<section class="order" id="order">
+
+    <h1 class="heading"> <span>order</span> now </h1>
+
+    <div id="row" >
+        <div class="col-sm w-100">
+            <div>
+                <div class="pe-1 ps-1"  style="height:29rem; overflow-y: scroll; overflow-x: hidden;">
+                    <% carts.forEach(function(cart,index) { sub_total = sub_total + cart.price*cart.qty %> 
+                    <div class="row m-3 ps-1 pb-3 pt-3 ps-1" style="box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 10%); border-radius: 1.5rem;">
+                        <div class="col-2 d-flex align-items-center">
+                            <img class="rounded" src="/assets/images/<%= cart.image %> " width="70" height="70"alt="">
+                        </div>
+                        <div class="col-9 ms-2 d-flex align-items-center">
+                            <span>
+                                <h3><%= cart.name %></h3>
+                                <p class="m-0 fs-4">
+                                    Price: <%= cart.price %>$
+                                </p>
+                                <p class="m-0 fs-5">
+                                    Quantity: <%- cart.qty %>
+                                </p>
+                            </span>
+                        </div>
+                    </div>
+                    <% })  %> 
+                </div>
+                <div class="row mt-3 ps-3" style="box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 10%); border-radius: 1.5rem;">
+                    <div class="col-8 pt-4 pb-4">
+                        <div class="meta-data">
+                            <p class="m-0 fs-4">
+                                Sub Total: <%- sub_total %>$
+                            </p>
+                            <p class="m-0 fs-4">
+                                Sales Tax: 5%
+                            </p>
+                            <p class="m-0 fs-4">
+                                Shipping: 20$
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-4 total">
+                        <span id="total" class="amount">
+                            <%- Math.round((sub_total*0.95 + 20)*1000)/1000 %>$
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form class="col-sm" id="order-form" method="post" action="/order">
+
+            <div class="inputBox">
+                <input type="text" name = "fullName" placeholder="Full name" required>
+                <input type="email" name = "email" placeholder="Email" required>
+            </div>
+
+            <div class="inputBox">
+                <input type="number" name = "phoneNumber" placeholder="Phone Number" required>
+            </div>
+
+            <textarea placeholder="Address" name="address" id="address" cols="30" rows="10" required></textarea>
+            <input type="hidden" name="total" value = "<%- Math.round((sub_total*0.95 + 20)*1000)/1000 %>">
+
+            <input type="submit" value="order now" class="btn1">
+
+        </form>
+    </div>
+
+</section>

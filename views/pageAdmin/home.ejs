@@ -1,0 +1,46 @@
+<h1 class="display-4 d-none d-sm-block">
+    Dashboard
+ </h1>
+ 
+ <div class="alert alert-warning fade collapse" role="alert" id="myAlert">
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">×</span>
+         <span class="sr-only">Close</span>
+     </button>
+     <strong>Holy guacamole!</strong> It's free.. this is an example theme.
+ </div>
+ <div class="row mb-3">
+     <div class="col-xl-4 col-sm-6 py-2">
+         <div class="card bg-success text-white">
+             <div class="card-body bg-success">
+                 <div class="rotate">
+                     <i class="fa fa-user fa-4x"></i>
+                 </div>
+                 <h6 class="text-uppercase mt-3 mb-0">User</h6>
+                 <h1 class="display-4 m-0"><%- numUser %></h1>
+             </div>
+         </div>
+     </div>
+     <div class="col-xl-4 col-sm-6 py-2">
+         <div class="card text-white bg-danger">
+             <div class="card-body bg-danger">
+                 <div class="rotate">
+                    <i class="fas fa-utensils fa-4x"></i>
+                 </div>
+                 <h6 class="text-uppercase mt-3 mb-0">Food</h6>
+                 <h1 class="display-4 m-0"><%- numFood %></h1>
+             </div>
+         </div>
+     </div>
+     <div class="col-xl-4 col-sm-6 py-2">
+         <div class="card text-white bg-warning">
+             <div class="card-body">
+                 <div class="rotate">
+                    <i class="fas fa-th-list fa-4x"></i>
+                 </div>
+                 <h6 class="text-uppercase mt-3 mb-0">Order</h6>
+                 <h1 class="display-4 m-0"><%- numOrder %></h1>
+             </div>
+         </div>
+     </div>
+ </div>

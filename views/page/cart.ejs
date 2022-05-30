@@ -1,0 +1,94 @@
+
+<script>
+    $(document).ready(function() {
+        function editCart(status,id) {
+            var check = $('body #snackbar')
+            if (check != null) {
+                check.remove();
+            }
+            $.get(url + "edit-cart/"+status+"/" + id, function (data) {
+                $('#lblCartCount').text(data.sumQty)
+                if (data.qty == 0) {
+                    $("#" + id).fadeTo(500, 0, function () {
+                        $(this).remove();
+                    });
+                } else {
+                    $("#" + id + " #qty").text(data.qty)
+                }
+                $("#sub-total").text(data.subTotal)
+                $("#total").text(data.total)
+
+                $("body").append(`<div id="snackbar">Edit Shopping Cart Successfully</div>`)
+                myFunction()
+            });
+        }
+        $('a#plus-qty').click(function () {
+            var id = $(this).attr('id-food');
+            editCart("plus",id);
+        })
+        $('a#sub-qty').click(function () {
+            var id = $(this).attr('id-food');
+            editCart("minus",id);
+        })
+        $('span#close').click(function () {
+            var id = $(this).attr('id-food');
+            editCart("delete",id);
+        }) 
+    });
+</script>
+<%
+ var sub_total = 0;  
+%> 
+<section class="popular" id="popular">
+    <h1 class="heading p-5"><span>cart</span>  </h1>
+    <div class="box-container">
+        <% carts.forEach(function(cart,index) { sub_total = sub_total + cart.price*cart.qty %>
+            <div class="box p-0" id="<%= cart._id %>">
+                <span class="price" style="top: 0.5rem;left: 0.5rem;"> $<%= cart.price %></span>
+                <span id="close" id-food="<%= cart._id %>" class="price"><i class="fas fa-times"></i></span>
+                <img src="/assets/images/<%= cart.image %> " alt="">
+                <h3>
+                    <%= cart.name %>
+                </h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="d-flex justify-content-between ps-3 pe-3 pb-2 mt-5 align-items-center">
+                    <span class="qty text-body">
+                        Quantity: 
+                        <span id="qty"><%- cart.qty %> </span>
+                    </span>
+                    <span>
+                        <a id="plus-qty" id-food="<%= cart._id %>" href="javascript:void(0)" class="btn btn-primary me-2"><i class="fas fa-plus"></i></a>
+                        <a id="sub-qty" id-food="<%= cart._id %>" href="javascript:void(0)" class="btn btn-danger"><i class="fas fa-minus"></i></a>
+                    </span>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    <div class="box-container">
+        <div id="checkout" class="box mt-5">
+            <div class="row">
+                <div class="col-8 meta-data">
+                    <div class="sub-total">
+                        <em>Sub Total: </em><span id="sub-total" class="amount"><%- sub_total %></span>$
+                    </div>
+                    <div class="taxes">
+                        <em>Sales Tax: </em><span class="amount">5%</span>
+                    </div>
+                    <div class="shipping">
+                        <em>Shipping: </em><span class="amount">20$</span>
+                    </div>
+                </div>
+                <div class="col-4 total">
+                    <span id="total" class="amount"><%- Math.round((sub_total*0.95 + 20)*1000)/1000 %></span>$
+                </div>
+            </div>
+            <a href="/order" class="btn1 btn-checkout fw-bold">Check out</a>
+        </div>
+    </div>
+</section>

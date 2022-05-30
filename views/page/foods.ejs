@@ -1,0 +1,20 @@
+<section class="popular" id="popular">
+    <h1 class="heading p-5"><span>all foods</span>  </h1>
+    <div class="box-container">
+        <% foods.forEach(function(food,index) { %>
+            <div class="box">
+                <span class="price"> <%= food.price %>$</span>
+                <img src="/assets/images/<%= food.image %> " alt="">
+                <h3><%= food.name %></h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a id="add-cart" id-food="<%= food._id %>" href="javascript:void(0)" class="btn1">add cart</a>
+            </div>
+        <% }) %>
+    </div>
+</section>

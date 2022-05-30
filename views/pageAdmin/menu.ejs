@@ -1,0 +1,37 @@
+<div class="primary-nav h-100 ">
+    <nav role="navigation" class="menu h-100">
+      <div class="bg-light">
+        <div class="row">
+          <div class="col-9 align-center text-dark font-weight-bold" style="font-size: 2em">
+            <i class="fa fa-university mt-3 mb-3 mr-2 ml-4"></i> FIT
+          </div>
+          <div class="col-3">
+            <span class="hamburger open-panel nav-toggle bg-light">
+              <span class="screen-reader-text">Menu</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="overflow-container">
+        <div class="overflow-container">
+          <ul class="menu-dropdown">
+            <li><a href="/admin">Home </a><span class="icon"><i class="fas fa-home"></i></span></li>
+            <li>
+              <a href="admin/users/">Users</a><span class="icon"><i class="fas fa-user-alt"></i></span>
+            </li>
+            <li><a href="admin/foods/">Foods</a><span class="icon"><i class="fas fa-utensils"></i></span></li>
+ 
+            <li><a href="admin/orders">Order</a><span class="icon"><i class="fas fa-th-list"></i></span></li>
+          </ul>
+        </div>
+    </nav>
+  </div>
+  <script>
+    $(document).ready(function () {
+      $('.nav-toggle').click(function (e) {
+        e.preventDefault();
+        $("html").toggleClass("openNav");
+        $(".nav-toggle").toggleClass("active");
+      });
+    });
+  </script>

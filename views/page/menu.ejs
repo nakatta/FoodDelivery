@@ -1,0 +1,84 @@
+<% 
+    function overflowEclipse(s) {
+        let width = s.length;
+        if (width >= 8) {
+            s = s.substring(0,8)+'...'
+            return s
+        }
+        return s
+    }
+%> 
+<script>
+    $(document).ready(function () {
+        $("a#add-cart").click(function () {
+            var id = $(this).attr("id-food")
+            var check = $('body #snackbar')
+            if (check != null) {
+                check.remove();
+            }
+            $.get(url + "add-cart/" + id, function (data) {
+                $('#lblCartCount').text(data)   
+                $("body").append(`<div id="snackbar">Add to Cart Successfully</div>`)
+                myFunction()
+            });
+        })
+
+        $.get(url + "add-cart/1", function (data) {
+            $('#lblCartCount').text(data)
+        });
+    });
+</script>
+<header>
+
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>LHNL</a>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <nav class="navbar d-block">
+        <div>
+            <span>
+                <a href="/"><b>Home</b></a>
+                <a href="/foods"><b>Food</b></a>
+                <a href="#"><b>Popular</b></a>
+                <a href="#"><b>Review</b></a>
+                <a href="/order"><b>Order</b></a>
+            </span>
+            <span>
+                <a href="/carts">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class='badge badge-warning' id='lblCartCount'> 5 </span>
+                </a>
+                <% if (user) { %>
+                    <div class="dropdown d-inline">
+                        <a style="text-transform: none;"class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                            aria-expanded="false" title="<%= user %> "><i class="fas fa-user"></i>
+                            <%= overflowEclipse(user) %>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item m-0" href="/login/logout">
+                                Logout <span class="ms-5 ps-5"><i class="fas fa-sign-out-alt"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                <% } else { %>
+                    <a href="/login"><i class="fas fa-user"></i> Login</a>
+                <% } %>
+            </span>
+        </div>
+    </nav>
+</header>
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3><b>food made with love</b></h3>
+        <p>"A chef is a person who creates food that helps people have fun and health to study and work"</p>
+        <a href="/foods" class="btn1" style="font-weight: bolder;">order now</a>
+    </div>
+
+    <div class="image">
+        <img src="/assets/images/home-img.png" alt="">
+    </div>
+
+</section>

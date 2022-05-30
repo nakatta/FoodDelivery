@@ -1,0 +1,176 @@
+<!-- home section starts  -->
+
+<!-- home section ends -->
+
+<!-- speciality section starts  -->
+<section class="speciality" id="speciality">
+
+    <h1 class="heading"> our <span>speciality</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img class="image" src="/assets/images/s-img-1.jpg" alt="">
+            <div class="content">
+                <img src="/assets/images/s-1.png" alt="">
+                <h3>tasty burger</h3>
+                <p>Enjoy your way</p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="image" src="/assets/images/s-img-2.jpg" alt="">
+            <div class="content">
+                <img src="/assets/images/s-2.png" alt="">
+                <h3>tasty pizza</h3>
+                <p>Delicious taste on every finger</p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="image" src="/assets/images/s-img-3.jpg" alt="">
+            <div class="content">
+                <img src="/assets/images/s-3.png" alt="">
+                <h3>cold ice-cream</h3>
+                <p>Only melts in the mouth, not in the hands</p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="image" src="/assets/images/s-img-4.jpg" alt="">
+            <div class="content">
+                <img src="/assets/images/s-4.png" alt="">
+                <h3>cold drinks</h3>
+                <p>Delicious to the last drop</p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="image" src="/assets/images/s-img-5.jpg" alt="">
+            <div class="content">
+                <img src="/assets/images/s-5.png" alt="">
+                <h3>tasty sweets</h3>
+                <p>One Moment – ​​Two Heavens</p>
+            </div>
+        </div>
+        <div class="box">
+            <img class="image" src="/assets/images/s-img-6.jpg" alt="">
+            <div class="content">
+                <img src="/assets/images/s-6.png" alt="">
+                <h3>healty breakfast</h3>
+                <p>Eat well - Live peacefully</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- speciality section ends -->
+
+<!-- popular section starts  -->
+
+<section class="popular" id="popular">
+
+    <h1 class="heading"> most <span>popular</span> foods </h1>
+
+    <div class="box-container">
+        <% foods.forEach(function(food,index) { %>
+            <div class="box">
+                <span class="price"> <%= food.price %>$  </span>
+                <img src="/assets/images/<%= food.image %> " alt="">
+                <h3><%= food.name %></h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a id="add-cart" id-food="<%= food._id %>" href="javascript:void(0)" class="btn1">add cart</a>
+            </div>
+        <% }) %>
+    </div>
+
+</section>
+
+<!-- popular section ends -->
+
+<!-- steps section starts  -->
+
+<div class="step-container">
+
+    <h1 class="heading">how it <span>works</span></h1>
+
+    <section class="steps">
+
+        <div class="box">
+            <img src="/assets/images/step-1.jpg" alt="">
+            <h3>choose your favorite food</h3>
+        </div>
+        <div class="box">
+            <img src="/assets/images/step-2.jpg" alt="">
+            <h3>free and fast delivery</h3>
+        </div>
+        <div class="box">
+            <img src="/assets/images/step-3.jpg" alt="">
+            <h3>easy payments methods</h3>
+        </div>
+        <div class="box">
+            <img src="/assets/images/step-4.jpg" alt="">
+            <h3>and finally, enjoy your food</h3>
+        </div>
+
+    </section>
+
+</div>
+
+<!-- steps section ends -->
+
+
+<!-- review section starts  -->
+
+<section class="review" id="review">
+
+    <h1 class="heading"> our customers <span>reviews</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="/assets/images/pic1.png" alt="">
+            <h3>Alice</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>The pizza here is super delicious, the thin crust is always crispy. And the portion is also very large, this 1 pizza I and my friend ate all of it, ate it full but still craved because it was so delicious. Pasta here is also quite okay, there are many types of pasta for me to choose from with many sauces. But when I come here, I recommend eating pizza..</p>
+        </div>
+        <div class="box">
+            <img src="/assets/images/pic2.png" alt="">
+            <h3>john deo</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>This is the Ramen restaurant I often eat these days because it's delicious and I don't have to wait too long. A bowl of 10 euro ramen is full, the broth is quite thick and fragrant. I also eat a lot but 1 bowl is full. The homemade lemonade here is also quite delicious.</p>
+        </div>
+        <div class="box">
+            <img src="/assets/images/pic3.png" alt="">
+            <h3>Adelaide</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>If you want to eat fresh seafood, this is the must-go option. Because it is located right in the tourist market, the price is higher, but it is worth the money. I even ate seafood at a super famous restaurant. But for me, eating seafood here is still the best hehe. The waiter is very cute too!!</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- review section ends -->
